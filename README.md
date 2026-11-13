@@ -1,4 +1,4 @@
-# @adastra/hex
+# @adastrarp/hex
 
 One hex grid for everything spatial in Ad Astra, plus the per-cell ticking
 that runs on it. Pointy-top, axial `(q, r)`, `size` = metres from a cell's
@@ -9,7 +9,7 @@ Runs inside FiveM's server JS runtime (V8): `src/` uses no Bun or Node API.
 Bun is for tests, tooling and the optional bundle.
 
 ```bash
-bun add @adastra/hex
+bun add @adastrarp/hex
 bun run check   # typecheck + lint + format:check + test
 bun run build   # dist/astra_hex.js, one file to drop in a FiveM resource
 ```
@@ -36,7 +36,7 @@ interval per tier:
 | `cold` | known but inactive                          | does **not** run unless the ticker sets `cold` |
 
 ```ts
-import { HexLayer, TickScheduler } from '@adastra/hex'
+import { HexLayer, TickScheduler } from '@adastrarp/hex'
 
 const scheduler = new TickScheduler({
   radius: 2, // ActiveSet: 19 cells around each player
@@ -89,7 +89,7 @@ here needs (the shortest `hot` interval is the useful limit; below the loop
 period it cannot run faster anyway).
 
 ```js
-// server/main.js, bundled from @adastra/hex (bun run build -> dist/astra_hex.js).
+// server/main.js, bundled from @adastrarp/hex (bun run build -> dist/astra_hex.js).
 // NOT TESTED IN GAME. Natives checked against astra-dev/content/generated/natives
 // (cfx/server.json): GetPlayerPed, GetEntityCoords, DoesEntityExist, GetGameTimer.
 // getPlayers() is the JS runtime function (docs: scripting-reference/runtimes/javascript).
@@ -141,7 +141,7 @@ Metrics for a dev panel: `scheduler.metrics()` is plain JSON.
 
 ## Release
 
-Bump `version` in `package.json` and merge to `main`: `publish.yml` runs `bun run check` and `bun run release`, which publishes `@adastra/hex` if that version is not on the registry. Auth is npm Trusted Publishing (OIDC, no token); the package must list `adastra-org/astra-hex` + `publish.yml` as trusted publisher in its npmjs.com settings. The very first release must be done by hand once from a logged-in shell (`bun run release`, 2FA on the terminal), because Trusted Publishing needs the package to exist.
+Bump `version` in `package.json` and merge to `main`: `publish.yml` runs `bun run check` and `bun run release`, which publishes `@adastrarp/hex` if that version is not on the registry. Auth is npm Trusted Publishing (OIDC, no token); the package must list `adastra-org/astra-hex` + `publish.yml` as trusted publisher in its npmjs.com settings. The very first release must be done by hand once from a logged-in shell (`bun run release`, 2FA on the terminal), because Trusted Publishing needs the package to exist.
 
 ## Docs
 

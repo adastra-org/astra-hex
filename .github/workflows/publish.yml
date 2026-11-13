@@ -1,6 +1,6 @@
 name: Publish
 
-# Publishes @adastra/hex when its version is not on the public registry yet. Bump a version to release it.
+# Publishes @adastrarp/hex when its version is not on the public registry yet. Bump a version to release it.
 # Auth is npm Trusted Publishing (OIDC): no token and no secret. The package must list this repo and this workflow
 # file (publish.yml) as its trusted publisher in its npmjs.com settings (Settings > Trusted Publisher).
 on:

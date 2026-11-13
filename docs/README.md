@@ -1,4 +1,4 @@
-# @adastra/hex docs
+# @adastrarp/hex docs
 
 Overview, API and the recommended FiveM server loop: root `README.md`.
 

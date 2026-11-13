@@ -1,4 +1,4 @@
-// Publishes @adastra/hex if its current version is not on the public registry yet.
+// Publishes @adastrarp/hex if its current version is not on the public registry yet.
 // CI (.github/workflows/publish.yml) uses npm Trusted Publishing (OIDC, no token). Bun packs the tarball and npm
 // publishes it, because `bun publish` has no OIDC support.
 // First release of a new package: Trusted Publishing needs the package to exist, so run `bun run release` once from a

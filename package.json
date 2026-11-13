@@ -1,5 +1,5 @@
 {
-  "name": "@adastra/hex",
+  "name": "@adastrarp/hex",
   "version": "0.2.0",
   "description": "Hexagonal world grid for Ad Astra: cells, data layers, presence, activation and per-cell ticking",
   "license": "MIT",
