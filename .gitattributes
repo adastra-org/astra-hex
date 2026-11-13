@@ -1,0 +1,5 @@
+# LF everywhere, also when checked out on Windows: oxfmt (format:check) and the
+# Linux runners expect LF, and shell scripts / nginx conf run on Linux.
+* text=auto eol=lf
+*.sh text eol=lf
+deploy/** text eol=lf

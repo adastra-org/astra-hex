@@ -1,0 +1,36 @@
+{
+  "name": "@adastra/hex",
+  "version": "0.1.0",
+  "description": "Hexagonal world grid for Ad Astra: cells, data layers, presence, activation and per-cell ticking",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "!src/**/*.test.ts"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./hex": "./src/hex.ts",
+    "./layer": "./src/layer.ts",
+    "./presence": "./src/presence.ts",
+    "./activation": "./src/activation.ts",
+    "./scheduler": "./src/scheduler.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "test": "bun test",
+    "build": "bun build src/index.ts --outfile dist/astra_hex.js --target node",
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun run test"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
+    "typescript": "^7.0.2"
+  }
+}
