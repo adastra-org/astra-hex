@@ -126,3 +126,14 @@ describe('ActiveSet', () => {
     expect(s.size).toBe(10)
   })
 })
+
+describe('PresenceTracker.ids', () => {
+  test('lists tracked ids and forgets removed ones', () => {
+    const p = new PresenceTracker(250)
+    p.update('a', 0, 0)
+    p.update('b', 1000, 0)
+    expect(p.ids().sort()).toEqual(['a', 'b'])
+    p.remove('a')
+    expect(p.ids()).toEqual(['b'])
+  })
+})

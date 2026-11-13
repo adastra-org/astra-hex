@@ -1,6 +1,6 @@
 {
   "name": "@adastra/hex",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Hexagonal world grid for Ad Astra: cells, data layers, presence, activation and per-cell ticking",
   "type": "module",
   "publishConfig": {
