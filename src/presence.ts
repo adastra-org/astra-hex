@@ -55,6 +55,11 @@ export class PresenceTracker {
     return [{ type: 'leave', id, cell: prev }]
   }
 
+  /** Every tracked id, to drop the ones that disconnected. */
+  ids(): string[] {
+    return [...this.cells.keys()]
+  }
+
   /** Ids currently in a cell. */
   occupants(cell: Hex): string[] {
     const out: string[] = []

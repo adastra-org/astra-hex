@@ -1,0 +1,38 @@
+name: Publish
+
+# Publishes @adastrarp/hex when its version is not on the public registry yet. Bump a version to release it.
+# Auth is npm Trusted Publishing (OIDC): no token and no secret. The package must list this repo and this workflow
+# file (publish.yml) as its trusted publisher in its npmjs.com settings (Settings > Trusted Publisher).
+on:
+  push:
+    branches: [main]
+    paths: ['src/**', 'package.json']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+      # Trusted Publishing needs npm >= 11.5.1 and Node >= 22.14; bun cannot do the OIDC exchange.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: bun install --frozen-lockfile
+      - run: bun run check
+      # A trusted-publishing failure surfaces only as a bare "ENEEDAUTH": npm logs the OIDC token
+      # exchange error at verbose level, so keep it readable when this step fails.
+      - run: bun run release
+        env:
+          NPM_CONFIG_LOGLEVEL: verbose
