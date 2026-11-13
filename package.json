@@ -2,6 +2,11 @@
   "name": "@adastra/hex",
   "version": "0.2.0",
   "description": "Hexagonal world grid for Ad Astra: cells, data layers, presence, activation and per-cell ticking",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adastra-org/astra-hex.git"
+  },
   "type": "module",
   "publishConfig": {
     "access": "public"
@@ -25,7 +30,8 @@
     "format:check": "oxfmt --check",
     "test": "bun test",
     "build": "bun build src/index.ts --outfile dist/astra_hex.js --target node",
-    "check": "bun run typecheck && bun run lint && bun run format:check && bun run test"
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun run test",
+    "release": "bun scripts/publish.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.4.4",

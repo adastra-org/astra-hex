@@ -139,6 +139,10 @@ setInterval(() => {
 
 Metrics for a dev panel: `scheduler.metrics()` is plain JSON.
 
+## Release
+
+Bump `version` in `package.json` and merge to `main`: `publish.yml` runs `bun run check` and `bun run release`, which publishes `@adastra/hex` if that version is not on the registry. Auth is npm Trusted Publishing (OIDC, no token); the package must list `adastra-org/astra-hex` + `publish.yml` as trusted publisher in its npmjs.com settings. The very first release must be done by hand once from a logged-in shell (`bun run release`, 2FA on the terminal), because Trusted Publishing needs the package to exist.
+
 ## Docs
 
 `docs/README.md` is the index. Design notes and open decisions: `docs/ticking.md`.
